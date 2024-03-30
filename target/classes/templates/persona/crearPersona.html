@@ -38,20 +38,12 @@
     <input type="text" id="ciudad" th:field="*{ciudad}" required />
     <label for="domicilio">DOMICILO:</label>
     <input type="text" id="domicilio" th:field="*{domicilio}" required />
-    <label for="celular">CELULAR:</label>
-    <input type="text" id="celular" th:field="*{celular}" required />
     <br>
-
     <label for="sexo">SEXO:</label>
-    <select class="form-select" id="sexo" th:field="*{sexo}">
-      <option selected disabled value="">Sexo</option>
-      <option value="M">M</option>
-      <option value="F">F</option>
-    </select>
-
-    <label for="fotoP">FOTO PERSONA:</label>
-    <input type="file" id="fotoP" name="fotoP" required />
+    <input type="radio" name="genero" id="sexo" value="masculino" th:field="*{sexo}"> Masculino
+    <input type="radio" name="genero" id="sexo"  value="femenino" th:field="*{sexo}"> Femenino
     <br>
+
     <label for="fotoDF">FOTO DNI FRENTE:</label>
     <input type="file" id="fotoDF" name="fotoDF" required />
     <br>
