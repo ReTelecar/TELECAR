@@ -1,7 +1,6 @@
 package com.institucion.demo.Institucion.services;
 
 import com.institucion.demo.Institucion.Excepciones.MiException;
-import com.institucion.demo.Institucion.entities.Persona;
 import com.institucion.demo.Institucion.entities.Propietario;
 import com.institucion.demo.Institucion.repository.Propietario_Repositorio;
 import org.springframework.beans.factory.annotation.Autowired;

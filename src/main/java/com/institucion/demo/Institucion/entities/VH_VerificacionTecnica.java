@@ -3,7 +3,7 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class VH_VerificacionTecnica {
@@ -18,8 +18,10 @@ public class VH_VerificacionTecnica {
     @OneToOne
     private Propietario propietario;
 
+    @Temporal(TemporalType.DATE)
     private Date fecha_Otorg;
 
+    @Temporal(TemporalType.DATE)
     private Date fecha_vencimiento;
 
     @Lob

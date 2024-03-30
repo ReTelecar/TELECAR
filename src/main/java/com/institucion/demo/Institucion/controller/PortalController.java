@@ -14,7 +14,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,7 +53,6 @@ public class PortalController {
     }
 
 
-
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, ModelMap model) {
         if (error != null) {
@@ -64,7 +65,7 @@ public class PortalController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/inicio")
-    public String inicio( ModelMap model, HttpSession session) {
+    public String inicio(ModelMap model, HttpSession session) {
 
 
         List<Usuario> users = usuario_servicio.listAll();
@@ -75,16 +76,16 @@ public class PortalController {
 
         for (Rol r : logueado.getRoles()) {
             for (Permisos p : r.getPermisos()) {
-                if(p.getPermiso().equals("Notificar")){
+                if (p.getPermiso().equals("Notificar")) {
                     model.addAttribute("notificar", true);
                 }
-                if(p.getPermiso().equals("carga_Notas")){
+                if (p.getPermiso().equals("carga_Notas")) {
                     model.addAttribute("cargarNotas", true);
                 }
             }
         }
 
-        if(logueado.isEstado() == false){
+        if (logueado.isEstado() == false) {
             model.put("error", "Usuario no habilitado");
 
             return "signin.html";

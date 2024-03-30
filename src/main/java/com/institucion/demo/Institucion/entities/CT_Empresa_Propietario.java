@@ -3,6 +3,7 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class CT_Empresa_Propietario {
@@ -17,6 +18,9 @@ public class CT_Empresa_Propietario {
     private Propietario propietario;
 
     private String contrato;
+
+    @Temporal(TemporalType.DATE)
+    private Date fecha_vencimiento;
 
     @Lob
     private byte[] fotoCont;

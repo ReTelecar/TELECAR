@@ -1,6 +1,10 @@
 package com.institucion.demo.Institucion.entities;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Propietario {
@@ -15,7 +19,19 @@ public class Propietario {
     private String tel_cont_2;
     private String desc_cont_2;
 
+    @OneToMany(mappedBy = "propietario")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private Set<Propietario_Vehiculo> propietario_vehiculos;
+
     public Propietario() {
+    }
+
+    public Set<Propietario_Vehiculo> getPropietario_vehiculos() {
+        return propietario_vehiculos;
+    }
+
+    public void setPropietario_vehiculos(Set<Propietario_Vehiculo> propietario_vehiculos) {
+        this.propietario_vehiculos = propietario_vehiculos;
     }
 
     public Long getId() {

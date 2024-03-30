@@ -3,7 +3,8 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Entity
 public class CH_Habil_Municipal {
@@ -15,6 +16,7 @@ public class CH_Habil_Municipal {
     private Chofer chofer;
     private String descriptcion;
 
+    @Temporal(TemporalType.DATE)
     private Date vencimiento;
 
     @Lob

@@ -3,7 +3,7 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class VH_Seguro_Vehiculo {
@@ -17,17 +17,16 @@ public class VH_Seguro_Vehiculo {
     @OneToOne
     private Propietario propietario;
 
-    private String compania;
+    @Lob
+    private byte[] foto;
 
     private String poliza;
 
+    private String Seguro;
+
+    @Temporal(TemporalType.DATE)
     private Date vencimiento;
 
-    @Lob
-    private byte[] frente;
-
-    @Lob
-    private byte[] dorso;
 
     public VH_Seguro_Vehiculo() {
     }
@@ -56,12 +55,12 @@ public class VH_Seguro_Vehiculo {
         this.propietario = propietario;
     }
 
-    public String getCompania() {
-        return compania;
+    public byte[] getFoto() {
+        return foto;
     }
 
-    public void setCompania(String compania) {
-        this.compania = compania;
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public String getPoliza() {
@@ -72,27 +71,19 @@ public class VH_Seguro_Vehiculo {
         this.poliza = poliza;
     }
 
+    public String getSeguro() {
+        return Seguro;
+    }
+
+    public void setSeguro(String seguro) {
+        Seguro = seguro;
+    }
+
     public Date getVencimiento() {
         return vencimiento;
     }
 
     public void setVencimiento(Date vencimiento) {
         this.vencimiento = vencimiento;
-    }
-
-    public byte[] getFrente() {
-        return frente;
-    }
-
-    public void setFrente(byte[] frente) {
-        this.frente = frente;
-    }
-
-    public byte[] getDorso() {
-        return dorso;
-    }
-
-    public void setDorso(byte[] dorso) {
-        this.dorso = dorso;
     }
 }

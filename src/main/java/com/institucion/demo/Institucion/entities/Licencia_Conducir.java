@@ -3,7 +3,7 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Licencia_Conducir {
@@ -12,6 +12,8 @@ public class Licencia_Conducir {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String categoria;
+
+    private String codigo;
     @OneToOne
     private Persona Persona;
 
@@ -19,8 +21,10 @@ public class Licencia_Conducir {
 
     private String factor_sanguineo;
 
+    @Temporal(TemporalType.DATE)
     private Date fecha_otorgamiento;
 
+    @Temporal(TemporalType.DATE)
     private Date fecha_Vencimiento;
 
     @Lob
@@ -102,5 +106,13 @@ public class Licencia_Conducir {
 
     public void setFecha_Vencimiento(Date fecha_Vencimiento) {
         this.fecha_Vencimiento = fecha_Vencimiento;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

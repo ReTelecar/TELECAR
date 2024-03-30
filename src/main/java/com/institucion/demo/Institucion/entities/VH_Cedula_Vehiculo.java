@@ -3,7 +3,8 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 public class VH_Cedula_Vehiculo {
@@ -14,12 +15,18 @@ public class VH_Cedula_Vehiculo {
 
     @OneToOne
     private Vehiculo vehiculo;
-    private String tipo;
+
+    private String tipo_licencia;
 
     private String uso;
-    private Date fecha_vencimiento;
+
+    private String fecha_vencimiento;
+
     @OneToOne
     private Propietario propietario;
+
+    @OneToOne
+    private Persona persona;
 
     @Lob
     private byte[] frente;
@@ -28,6 +35,22 @@ public class VH_Cedula_Vehiculo {
     private byte[] dorso;
 
     public VH_Cedula_Vehiculo() {
+    }
+
+    public String getTipo_licencia() {
+        return tipo_licencia;
+    }
+
+    public void setTipo_licencia(String tipo_licencia) {
+        this.tipo_licencia = tipo_licencia;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public Long getId() {
@@ -44,14 +67,6 @@ public class VH_Cedula_Vehiculo {
 
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getUso() {
@@ -78,11 +93,11 @@ public class VH_Cedula_Vehiculo {
         this.dorso = dorso;
     }
 
-    public Date getFecha_vencimiento() {
+    public String getFecha_vencimiento() {
         return fecha_vencimiento;
     }
 
-    public void setFecha_vencimiento(Date fecha_vencimiento) {
+    public void setFecha_vencimiento(String fecha_vencimiento) {
         this.fecha_vencimiento = fecha_vencimiento;
     }
 

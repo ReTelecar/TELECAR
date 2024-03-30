@@ -21,7 +21,7 @@
     <span class="logo_name">GESTION</span>
   </div>
   <ul class="nav-links">
-    <li>
+    <!--<li>
       <div class="iocn-link">
         <a>
           <i class='bx bx-lock-alt'></i>
@@ -34,7 +34,7 @@
         <li><a th:href="@{/persona/crear}" >Carga</a></li>
         <li><a href="#">Ver</a></li>
       </ul>
-    </li>
+    </li>-->
     <li>
       <div class="iocn-link">
         <a>
@@ -45,11 +45,25 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name">Propietario</a></li>
-        <li><a th:href="@{/propietario/crear}">Carga</a></li>
-        <li><a href="#">Ver</a></li>
+        <li><a th:href="@{/vh-CnVia/Con-Hist.Viajes(internoSelec=0)}">Consultar Movil</a></li>
+
       </ul>
     </li>
     <li>
+      <div class="iocn-link">
+        <a>
+          <i class='bx bx-lock-alt'></i>
+          <span class="link_name">Estado/Movil</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow'></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Estado/Movil</a></li>
+        <li><a th:href="@{/vehiculo/telecar-data}">Consultar Estado Movil</a></li>
+
+      </ul>
+    </li>
+    <!--<li>
       <div class="iocn-link">
         <a>
           <i class='bx bx-lock-alt'></i>
@@ -59,7 +73,7 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name">Movil</a></li>
-        <li><a href="#">Carga</a></li>
+        <li><a th:href="@{/vehiculo/crear}">Carga</a></li>
         <li><a href="#">Ver</a></li>
       </ul>
     </li>
@@ -89,7 +103,7 @@
         <li><a class="link_name">Contrato</a></li>
         <li><a href="#">Empresa/Propietario</a></li>
       </ul>
-    </li>
+    </li>!-->
 
 
     <li>

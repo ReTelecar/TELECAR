@@ -34,11 +34,6 @@ public class Persona {
 
     private String domicilio;
 
-    private String celular;
-
-    @Lob
-    private byte[] persona;
-
     @Lob
     private byte[] frenteDNI;
 
@@ -70,14 +65,6 @@ public class Persona {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public byte[] getPersona() {
-        return persona;
-    }
-
-    public void setPersona(byte[] persona) {
-        this.persona = persona;
     }
 
     public byte[] getFrenteDNI() {
@@ -174,13 +161,5 @@ public class Persona {
 
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
     }
 }

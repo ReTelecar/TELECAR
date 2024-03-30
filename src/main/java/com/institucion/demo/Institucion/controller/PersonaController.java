@@ -1,9 +1,7 @@
 package com.institucion.demo.Institucion.controller;
 
 import com.institucion.demo.Institucion.Excepciones.MiException;
-import com.institucion.demo.Institucion.entities.Permisos;
 import com.institucion.demo.Institucion.entities.Persona;
-import com.institucion.demo.Institucion.entities.Rol;
 import com.institucion.demo.Institucion.services.Persona_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/persona")
@@ -37,11 +34,10 @@ public class PersonaController {
     @PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/creado", method = RequestMethod.POST)
     public String crearPersona(@ModelAttribute("persona") Persona persona, ModelMap model,
-                               @RequestParam("fotoP") MultipartFile fotoP,
                                @RequestParam("fotoDF") MultipartFile fotoDF,
                                @RequestParam("fotoDD") MultipartFile fotoDD) throws MiException {
         try {
-            personaService.crearPersona(persona, fotoP, fotoDF, fotoDD);
+            personaService.crearPersona(persona, fotoDF, fotoDD);
         } catch (MiException e) {
 
             model.addAttribute("persona", new Persona());

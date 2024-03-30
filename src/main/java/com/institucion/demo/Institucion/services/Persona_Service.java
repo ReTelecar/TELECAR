@@ -17,16 +17,14 @@ public class Persona_Service {
 
 
     @Transactional
-    public void crearPersona(Persona p, MultipartFile fotoP, MultipartFile fotoDF, MultipartFile fotoDD) throws MiException, IOException {
+    public void crearPersona(Persona p, MultipartFile fotoDF, MultipartFile fotoDD) throws MiException, IOException {
         validatePersona(p);
 
-        byte[] fileBytesP = fotoP.getBytes();
         byte[] fileBytesDF = fotoDF.getBytes();
         byte[] fileBytesDD = fotoDD.getBytes();
 
         p.setDorsoDNI(fileBytesDD);
         p.setFrenteDNI(fileBytesDF);
-        p.setPersona(fileBytesP);
 
         personaRepositorio.save(p);
     }
@@ -39,9 +37,6 @@ public class Persona_Service {
         }
         if(p.getNombre().isEmpty() || p.getNombre() == null){
             throw new MiException("Por favor, Ingrese un Nombre");
-        }
-        if(p.getCelular().isEmpty() || p.getCelular() == null){
-            throw new MiException("Por favor, Ingrese un Celular");
         }
         if(p.getCuil().isEmpty() || p.getCuil() == null || p.getCuil().length() < 11){
             throw new MiException("Por favor, Ingrese un Cuil valido");

@@ -22,7 +22,6 @@ public class Usuario {
     private boolean estado;
     @Temporal(TemporalType.DATE)
     private Date created_at;
-    @Temporal(TemporalType.DATE)
     private Date updated_at;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))

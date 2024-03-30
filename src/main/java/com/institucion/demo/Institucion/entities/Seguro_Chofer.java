@@ -3,7 +3,7 @@ package com.institucion.demo.Institucion.entities;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Seguro_Chofer {
@@ -14,28 +14,11 @@ public class Seguro_Chofer {
     @OneToOne
     private Chofer chofer;
 
-    private String descriptcion;
-
-    private Date vencimiento;
-
     @Lob
     private byte[] frente;
 
     @Lob
     private byte[] dorso;
-
-    private String Compania;
-
-    private String poliza;
-
-
-    public String getCompania() {
-        return Compania;
-    }
-
-    public void setCompania(String compania) {
-        Compania = compania;
-    }
 
     public Seguro_Chofer() {
     }
@@ -56,22 +39,6 @@ public class Seguro_Chofer {
         this.chofer = chofer;
     }
 
-    public String getDescriptcion() {
-        return descriptcion;
-    }
-
-    public void setDescriptcion(String descriptcion) {
-        this.descriptcion = descriptcion;
-    }
-
-    public Date getVencimiento() {
-        return vencimiento;
-    }
-
-    public void setVencimiento(Date vencimiento) {
-        this.vencimiento = vencimiento;
-    }
-
     public byte[] getFrente() {
         return frente;
     }
@@ -86,13 +53,5 @@ public class Seguro_Chofer {
 
     public void setDorso(byte[] dorso) {
         this.dorso = dorso;
-    }
-
-    public String getPoliza() {
-        return poliza;
-    }
-
-    public void setPoliza(String poliza) {
-        this.poliza = poliza;
     }
 }
